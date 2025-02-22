@@ -1,0 +1,27 @@
+                                                                      JAWABAN TUGAS1
+
+
+1. Dokumen root adalah folrder tempat file" sebuah website disimpan untuk sebuah nama domain.
+
+2. Tidak, karna dokumen root pada apache web server tidak harus selalu berada di rektori C:\xampp\htdocs. lokasi defalut bisa di ubah sesuai kebutuhan. Untuk mengubah document root, file konfigurasi Apache perlu diedit, kemudian service Apache perlu di-restart agar perubahan diterapkan.
+
+3. Git init adalah perintah yang di gunakan untuk membuat repositori git baru di direktori kerja lokal. perintah git init ini akan membuat direktori git yang berfungsi sbgai database untuk menyimpan info versioning.
+
+   Git clone adalah perintah untuk meng-clone(menyalin) repositori git dri server remote /direktori lokal lainnya.
+
+   Git add adalah perintah yang di gunakan untuk menambahkan perubahan pda file / direktori ke area staging.
+
+   Git commit adalah perintah untuk menyimpan perubahan yang telah ditambahkan ke staging area ke dalam repositori git.
+
+   Git push adalah perintah untuk mengirim perubahan yang telah di commit ke repositori di server.
+
+   Git checkout adalah perintah untuk menukar cabang aktif dengan cabang yang dipilih.
+
+   Git remote adalah perintah untuk mengelola daftar repositori jarak jauh yang terhubung dengan repositori lokal.
+
+4. GitHub dan GitLab adalah platform repositori berbasis web yang membantu dalam manajemen kode dan berbagi file lokal dengan repositori jarak jauh, Keduanya dibangun di atas Git dan menyediakan alat untuk kolaborasi.
+
+5. Bedanya variabel sistem dengan variabel user adalah terletak pada lingkup aksesnya, kalau variabel sistem dpt di akses secara global oleh semua pengguna dalam sistem. sdngkan variabel user hnya dpt diakses oleh user yang login saja.
+
+6. persamaan keduanya di gunakan dalam model, representasi data, dan pengaruh pada hasil. 
+   
