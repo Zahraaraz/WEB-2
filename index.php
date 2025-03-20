@@ -1,14 +1,13 @@
 <?php
-require_once("function/callpage.php");
-callpage("header");
-callpage("navbar");
-if (isset($_GET['page'])) {
-    # code...
-    callpage($_GET['page']);
+require_once('Controllers/Page.php');
+
+if (isset($_GET['url'])) {
+    $file = $_GET['url'];
 } else {
-    callpage("home");
+    header("Location: ?url=home");
+    exit();
 }
 
-callpage("footer");
-
-?>
+$title = strtoupper($file);
+$home = new Page("$title", "$file");
+$home->call();
