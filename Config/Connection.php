@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * File ini akan digunakan untuk memanggil database
+ */
+$host = "localhost";
+$dbname = "dbkegiatan_dosen";
+$username = "root";
+$password = "";
+
+
+
+// Membuat koneksi
+$koneksi = mysqli_connect($host, $username, $password, $dbname);
+
+// Periksa koneksi
+if (!$koneksi) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
+}
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+} catch (PDOException $e) {
+    die("Koneksi gagal: " . $e->getMessage());
+}
