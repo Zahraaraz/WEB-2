@@ -1,14 +1,18 @@
 <?php
+// Controllers/Dosen.php
 require_once 'Config/Connection.php';
 
 class Dosen
 {
     private $pdo;
+
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
+        if ($this->pdo === null) {
+            die("Koneksi database gagal!");
+        }
     }
-
 
     public function index()
     {
@@ -18,7 +22,6 @@ class Dosen
             LEFT JOIN prodi pr ON pr.id = p.prodi_id
         ");
         $data = $stmt->fetchAll();
-
         return $data;
     }
 
@@ -58,7 +61,6 @@ class Dosen
     {
         $sql = "UPDATE dosen SET nidn=:nidn, nama=:nama, gelar_belakang=:gelar_belakang, gelar_depan=:gelar_depan, jenis_kelamin=:jenis_kelamin, tempat_lahir=:tempat_lahir, tanggal_lahir=:tanggal_lahir, alamat=:alamat, email=:email, tahun_masuk=:tahun_masuk, prodi_id=:prodi_id WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
-
         $stmt->bindParam(':nidn', $data['nidn']);
         $stmt->bindParam(':nama', $data['nama']);
         $stmt->bindParam(':gelar_belakang', $data['gelar_belakang']);
@@ -71,7 +73,6 @@ class Dosen
         $stmt->bindParam(':tahun_masuk', $data['tahun_masuk']);
         $stmt->bindParam(':prodi_id', $data['prodi_id']);
         $stmt->bindParam(':id', $id);
-
         $stmt->execute();
         return $this->show($id);
     }
@@ -81,9 +82,7 @@ class Dosen
         $row = $this->show($id);
         $sql = "DELETE FROM dosen WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
-
         $stmt->bindParam(':id', $id);
-
         $stmt->execute();
         return $row;
     }
@@ -95,10 +94,9 @@ class Dosen
             FROM dosen p
             LEFT JOIN prodi pr ON pr.id = p.prodi_id
             ORDER BY p.id DESC LIMIT 1
-            ");
+        ");
         $data = $stmt->fetch();
         return $data;
     }
 }
-
-$dosen = new Dosen($pdo);
+?>
